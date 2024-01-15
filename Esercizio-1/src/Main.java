@@ -1,3 +1,6 @@
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -7,6 +10,8 @@ public class Main {
 
     private static final int[] arr = new int[5];
     public static void main(String[] args) {
+
+        final Logger logger = LoggerFactory.getLogger(Main.class);
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
         System.out.println("Esercizio 1");
@@ -30,7 +35,7 @@ public class Main {
                     System.out.println("Inserire nuovo valore");
                     int m = input.nextInt();
                     arr[counter - 1] = m;
-                    for (int i = 0; i < arr.length; i++) {
+                    for (int i = 0; i < arr.length +1; i++) {
                         System.out.println("---------- NUOVO ARRAY " + (i + 1) +  " ----------");
                         System.out.println(arr[i]);
                     }
@@ -39,7 +44,7 @@ public class Main {
                 }
             }while (true);
         } catch (ArrayIndexOutOfBoundsException err){
-            System.err.println(err.getMessage());
+            logger.warn(err.getMessage());
         }
 
 
