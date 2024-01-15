@@ -1,9 +1,14 @@
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args)  {
+
+        final Logger logger = LoggerFactory.getLogger(Main.class);
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
         System.out.println("Esercizio 2");
@@ -18,7 +23,7 @@ public class Main {
             int consumo = km/l;
             System.out.println(consumo);
         }catch (ArithmeticException err){
-            System.err.println(err.getMessage());
+            logger.warn(err.getMessage());
         }
     }
 }
