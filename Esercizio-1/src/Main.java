@@ -44,7 +44,7 @@ public class Main {
                 }
             }while (true);
         } catch (ArrayIndexOutOfBoundsException err){
-            logger.warn(err.getMessage());
+            logger.error(err.getMessage());
         }
 
 
