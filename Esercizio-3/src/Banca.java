@@ -2,10 +2,14 @@ import it.sam.be.classi.ContoOnLine;
 import it.sam.be.exception.BancaException;
 import it.sam.be.superclassi.ContoCorrente;
 
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Banca {
     public static void main(String[] args) {
+        final Logger logger = LoggerFactory.getLogger(Banca.class);
 
         System.out.println("Esercizio 3");
 
@@ -17,7 +21,7 @@ public class Banca {
             conto1.preleva(1750.5);
             System.out.println("Saldo conto: " + conto1.getSaldo());
         }catch (BancaException e){
-            System.out.println("Errore durante il prelievo " + e);
+            logger.warn("Il conto è in rosso " + e);
             e.printStackTrace();
         }
 
@@ -26,10 +30,10 @@ public class Banca {
         conto2.stampaSaldo();
 
         try{
-            conto2.preleva(500.0);
+            conto2.preleva(2000.0);
             conto2.stampaSaldo();
         }catch (BancaException e){
-            System.out.println("Errore durante il prelievo " + e);
+            logger.warn("Errore durante il prelievo " + e);
             e.printStackTrace();
         }
     }
